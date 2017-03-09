@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B1BB087-3153-4855-B48B-258C5A6062B0}</ProjectGuid>
+    <ProjectGuid>{AB122945-E47C-466A-9613-F3B12EE556F2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>HenryBrookes.My.MyApplication</StartupObject>
-    <RootNamespace>HenryBrookes</RootNamespace>
-    <AssemblyName>HenryBrookes</AssemblyName>
+    <StartupObject>MultiPaneSample.My.MyApplication</StartupObject>
+    <RootNamespace>MultiPaneSample</RootNamespace>
+    <AssemblyName>MultiPaneSample</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>HenryBrookes.xml</DocumentationFile>
+    <DocumentationFile>MultiPaneSample.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>HenryBrookes.xml</DocumentationFile>
+    <DocumentationFile>MultiPaneSample.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -72,15 +72,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CDB.vb" />
-    <Compile Include="frmHenry.vb">
+    <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHenry.Designer.vb">
-      <DependentUpon>frmHenry.vb</DependentUpon>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modDB.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -98,8 +96,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmHenry.resx">
-      <DependentUpon>frmHenry.vb</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

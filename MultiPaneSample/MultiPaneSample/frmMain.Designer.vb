@@ -24,11 +24,16 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.SplitContainer4 = New System.Windows.Forms.SplitContainer()
-        Me.grpCust = New System.Windows.Forms.GroupBox()
-        Me.grpOrders = New System.Windows.Forms.GroupBox()
         Me.btnLoad = New System.Windows.Forms.Button()
+        Me.grpCust = New System.Windows.Forms.GroupBox()
+        Me.tvwCust = New System.Windows.Forms.TreeView()
+        Me.grpOrders = New System.Windows.Forms.GroupBox()
+        Me.tvwOrders = New System.Windows.Forms.TreeView()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.grpWorkArea = New System.Windows.Forms.GroupBox()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.SplitContainer4 = New System.Windows.Forms.SplitContainer()
+        Me.ofdData = New System.Windows.Forms.OpenFileDialog()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -37,7 +42,10 @@ Partial Class frmMain
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
+        Me.grpCust.SuspendLayout()
+        Me.grpOrders.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,11 +88,59 @@ Partial Class frmMain
         Me.SplitContainer3.SplitterDistance = 280
         Me.SplitContainer3.TabIndex = 0
         '
+        'btnLoad
+        '
+        Me.btnLoad.Location = New System.Drawing.Point(92, 247)
+        Me.btnLoad.Name = "btnLoad"
+        Me.btnLoad.Size = New System.Drawing.Size(86, 24)
+        Me.btnLoad.TabIndex = 1
+        Me.btnLoad.Text = "Load"
+        Me.btnLoad.UseVisualStyleBackColor = True
+        '
+        'grpCust
+        '
+        Me.grpCust.Controls.Add(Me.tvwCust)
+        Me.grpCust.Location = New System.Drawing.Point(12, 12)
+        Me.grpCust.Name = "grpCust"
+        Me.grpCust.Size = New System.Drawing.Size(167, 228)
+        Me.grpCust.TabIndex = 0
+        Me.grpCust.TabStop = False
+        Me.grpCust.Text = "CUSTOMER LIST"
+        '
+        'tvwCust
+        '
+        Me.tvwCust.Location = New System.Drawing.Point(12, 21)
+        Me.tvwCust.Name = "tvwCust"
+        Me.tvwCust.Size = New System.Drawing.Size(143, 197)
+        Me.tvwCust.TabIndex = 0
+        '
+        'grpOrders
+        '
+        Me.grpOrders.Controls.Add(Me.tvwOrders)
+        Me.grpOrders.Location = New System.Drawing.Point(12, 20)
+        Me.grpOrders.Name = "grpOrders"
+        Me.grpOrders.Size = New System.Drawing.Size(167, 228)
+        Me.grpOrders.TabIndex = 1
+        Me.grpOrders.TabStop = False
+        Me.grpOrders.Text = "ORDERS"
+        '
+        'tvwOrders
+        '
+        Me.tvwOrders.Location = New System.Drawing.Point(11, 25)
+        Me.tvwOrders.Name = "tvwOrders"
+        Me.tvwOrders.Size = New System.Drawing.Size(143, 190)
+        Me.tvwOrders.TabIndex = 0
+        '
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer2.Name = "SplitContainer2"
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.grpWorkArea)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.btnExit)
         '
         'SplitContainer2.Panel2
         '
@@ -92,6 +148,23 @@ Partial Class frmMain
         Me.SplitContainer2.Size = New System.Drawing.Size(768, 553)
         Me.SplitContainer2.SplitterDistance = 547
         Me.SplitContainer2.TabIndex = 0
+        '
+        'grpWorkArea
+        '
+        Me.grpWorkArea.Location = New System.Drawing.Point(20, 17)
+        Me.grpWorkArea.Name = "grpWorkArea"
+        Me.grpWorkArea.Size = New System.Drawing.Size(505, 478)
+        Me.grpWorkArea.TabIndex = 1
+        Me.grpWorkArea.TabStop = False
+        '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(428, 508)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(98, 33)
+        Me.btnExit.TabIndex = 0
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'SplitContainer4
         '
@@ -103,32 +176,9 @@ Partial Class frmMain
         Me.SplitContainer4.SplitterDistance = 256
         Me.SplitContainer4.TabIndex = 0
         '
-        'grpCust
+        'ofdData
         '
-        Me.grpCust.Location = New System.Drawing.Point(12, 12)
-        Me.grpCust.Name = "grpCust"
-        Me.grpCust.Size = New System.Drawing.Size(167, 228)
-        Me.grpCust.TabIndex = 0
-        Me.grpCust.TabStop = False
-        Me.grpCust.Text = "CUSTOMER LIST"
-        '
-        'grpOrders
-        '
-        Me.grpOrders.Location = New System.Drawing.Point(12, 20)
-        Me.grpOrders.Name = "grpOrders"
-        Me.grpOrders.Size = New System.Drawing.Size(167, 228)
-        Me.grpOrders.TabIndex = 1
-        Me.grpOrders.TabStop = False
-        Me.grpOrders.Text = "ORDERS"
-        '
-        'btnLoad
-        '
-        Me.btnLoad.Location = New System.Drawing.Point(92, 247)
-        Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(86, 24)
-        Me.btnLoad.TabIndex = 1
-        Me.btnLoad.Text = "Load"
-        Me.btnLoad.UseVisualStyleBackColor = True
+        Me.ofdData.FileName = "OpenFileDialog1"
         '
         'frmMain
         '
@@ -147,6 +197,9 @@ Partial Class frmMain
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
+        Me.grpCust.ResumeLayout(False)
+        Me.grpOrders.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
@@ -163,4 +216,9 @@ Partial Class frmMain
     Friend WithEvents btnLoad As Button
     Friend WithEvents grpCust As GroupBox
     Friend WithEvents grpOrders As GroupBox
+    Friend WithEvents tvwCust As TreeView
+    Friend WithEvents tvwOrders As TreeView
+    Friend WithEvents grpWorkArea As GroupBox
+    Friend WithEvents btnExit As Button
+    Friend WithEvents ofdData As OpenFileDialog
 End Class

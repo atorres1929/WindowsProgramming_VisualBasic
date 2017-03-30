@@ -77,7 +77,7 @@ Partial Class frmMain
         Me.tsbHome.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbHome.Name = "tsbHome"
         Me.tsbHome.Size = New System.Drawing.Size(48, 48)
-        Me.tsbHome.Text = "ToolStripButton1"
+        Me.tsbHome.Text = "HOME"
         '
         'ToolStripSeparator11
         '
@@ -94,7 +94,7 @@ Partial Class frmMain
         Me.tsbMember.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbMember.Name = "tsbMember"
         Me.tsbMember.Size = New System.Drawing.Size(48, 48)
-        Me.tsbMember.Text = "ToolStripButton1"
+        Me.tsbMember.Text = "MEMBER"
         '
         'ToolStripSeparator8
         '
@@ -111,7 +111,7 @@ Partial Class frmMain
         Me.tsbRole.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbRole.Name = "tsbRole"
         Me.tsbRole.Size = New System.Drawing.Size(48, 48)
-        Me.tsbRole.Text = "ToolStripButton1"
+        Me.tsbRole.Text = "ROLES"
         '
         'ToolStripSeparator9
         '
@@ -128,7 +128,7 @@ Partial Class frmMain
         Me.tsbEvent.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbEvent.Name = "tsbEvent"
         Me.tsbEvent.Size = New System.Drawing.Size(48, 48)
-        Me.tsbEvent.Text = "ToolStripButton1"
+        Me.tsbEvent.Text = "EVENT"
         '
         'ToolStripSeparator6
         '
@@ -145,7 +145,7 @@ Partial Class frmMain
         Me.tsbRSVP.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbRSVP.Name = "tsbRSVP"
         Me.tsbRSVP.Size = New System.Drawing.Size(48, 48)
-        Me.tsbRSVP.Text = "ToolStripButton1"
+        Me.tsbRSVP.Text = "RSVP"
         '
         'ToolStripSeparator7
         '
@@ -162,7 +162,7 @@ Partial Class frmMain
         Me.tsbCourse.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbCourse.Name = "tsbCourse"
         Me.tsbCourse.Size = New System.Drawing.Size(48, 48)
-        Me.tsbCourse.Text = "ToolStripButton1"
+        Me.tsbCourse.Text = "COURSES"
         '
         'ToolStripSeparator4
         '
@@ -179,7 +179,7 @@ Partial Class frmMain
         Me.tsbSemester.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbSemester.Name = "tsbSemester"
         Me.tsbSemester.Size = New System.Drawing.Size(48, 48)
-        Me.tsbSemester.Text = "ToolStripButton1"
+        Me.tsbSemester.Text = "SEMESTER"
         '
         'ToolStripSeparator5
         '
@@ -196,7 +196,7 @@ Partial Class frmMain
         Me.tsbTutor.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbTutor.Name = "tsbTutor"
         Me.tsbTutor.Size = New System.Drawing.Size(48, 48)
-        Me.tsbTutor.Text = "ToolStripButton1"
+        Me.tsbTutor.Text = "TUTOR"
         '
         'ToolStripSeparator1
         '
@@ -214,7 +214,7 @@ Partial Class frmMain
         Me.tsbHelp.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbHelp.Name = "tsbHelp"
         Me.tsbHelp.Size = New System.Drawing.Size(48, 48)
-        Me.tsbHelp.Text = "ToolStripButton1"
+        Me.tsbHelp.Text = "HELP"
         '
         'ToolStripSeparator3
         '
@@ -233,7 +233,7 @@ Partial Class frmMain
         Me.tsbLogout.Margin = New System.Windows.Forms.Padding(0)
         Me.tsbLogout.Name = "tsbLogout"
         Me.tsbLogout.Size = New System.Drawing.Size(48, 48)
-        Me.tsbLogout.Text = "ToolStripButton1"
+        Me.tsbLogout.Text = "LOGOUT"
         '
         'PictureBox1
         '

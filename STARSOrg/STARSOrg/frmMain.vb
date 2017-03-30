@@ -22,7 +22,16 @@
         Me.Show()
     End Sub
 
-
+    Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbHome.MouseEnter, tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbHelp.MouseEnter, tsbLogout.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
+        Dim tsbProxy As ToolStripButton
+        tsbProxy = DirectCast(sender, ToolStripButton)
+        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Text
+    End Sub
+    Private Sub tsbProxy_MouseLeave(sender As Object, e As EventArgs) Handles tsbHome.MouseLeave, tsbCourse.MouseLeave, tsbEvent.MouseLeave, tsbMember.MouseLeave, tsbRole.MouseLeave, tsbHelp.MouseLeave, tsbLogout.MouseLeave, tsbRSVP.MouseLeave, tsbSemester.MouseLeave, tsbTutor.MouseLeave
+        Dim tsbProxy As ToolStripButton
+        tsbProxy = DirectCast(sender, ToolStripButton)
+        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Image
+    End Sub
 
 #End Region
 
@@ -86,5 +95,9 @@
         End If
         Me.Cursor = Cursors.Default
         Application.Exit()
+    End Sub
+
+    Private Sub tsbLogout_Click(sender As Object, e As EventArgs) Handles tsbLogout.Click
+        EndProgram()
     End Sub
 End Class

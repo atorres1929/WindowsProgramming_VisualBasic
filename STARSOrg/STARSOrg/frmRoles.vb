@@ -4,7 +4,7 @@ Public Class frmRoles
 
     Private objRoles As CRoles
     Private blnLoading As Boolean
-
+    Private blnReloading As Boolean
 
 #Region "ToolBar"
     Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbHome.MouseEnter, tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbHelp.MouseEnter, tsbLogout.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter

@@ -44,7 +44,25 @@ Partial Class frmRoles
         Me.tsbHelp = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbLogout = New System.Windows.Forms.ToolStripButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.grpNew = New System.Windows.Forms.GroupBox()
+        Me.chkNew = New System.Windows.Forms.CheckBox()
+        Me.grpRoles = New System.Windows.Forms.GroupBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.grpEdit = New System.Windows.Forms.GroupBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip1.SuspendLayout()
+        Me.grpNew.SuspendLayout()
+        Me.grpRoles.SuspendLayout()
+        Me.grpEdit.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -232,18 +250,165 @@ Partial Class frmRoles
         Me.tsbLogout.Size = New System.Drawing.Size(48, 48)
         Me.tsbLogout.Text = "LOGOUT"
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label1.Location = New System.Drawing.Point(12, 54)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1045, 43)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Label1"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'grpNew
+        '
+        Me.grpNew.Controls.Add(Me.chkNew)
+        Me.grpNew.Location = New System.Drawing.Point(16, 116)
+        Me.grpNew.Name = "grpNew"
+        Me.grpNew.Size = New System.Drawing.Size(302, 107)
+        Me.grpNew.TabIndex = 3
+        Me.grpNew.TabStop = False
+        Me.grpNew.Text = "New Role"
+        '
+        'chkNew
+        '
+        Me.chkNew.AutoSize = True
+        Me.chkNew.Location = New System.Drawing.Point(29, 26)
+        Me.chkNew.Name = "chkNew"
+        Me.chkNew.Size = New System.Drawing.Size(99, 17)
+        Me.chkNew.TabIndex = 0
+        Me.chkNew.Text = "Add a New role"
+        Me.chkNew.UseVisualStyleBackColor = True
+        '
+        'grpRoles
+        '
+        Me.grpRoles.Controls.Add(Me.ListView1)
+        Me.grpRoles.Location = New System.Drawing.Point(19, 257)
+        Me.grpRoles.Name = "grpRoles"
+        Me.grpRoles.Size = New System.Drawing.Size(299, 121)
+        Me.grpRoles.TabIndex = 4
+        Me.grpRoles.TabStop = False
+        Me.grpRoles.Text = "ROLES"
+        '
+        'ListView1
+        '
+        Me.ListView1.Location = New System.Drawing.Point(12, 18)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(280, 89)
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        '
+        'grpEdit
+        '
+        Me.grpEdit.Controls.Add(Me.btnCancel)
+        Me.grpEdit.Controls.Add(Me.btnSave)
+        Me.grpEdit.Controls.Add(Me.Label3)
+        Me.grpEdit.Controls.Add(Me.Label2)
+        Me.grpEdit.Controls.Add(Me.TextBox2)
+        Me.grpEdit.Controls.Add(Me.TextBox1)
+        Me.grpEdit.Location = New System.Drawing.Point(414, 126)
+        Me.grpEdit.Name = "grpEdit"
+        Me.grpEdit.Size = New System.Drawing.Size(395, 266)
+        Me.grpEdit.TabIndex = 5
+        Me.grpEdit.TabStop = False
+        Me.grpEdit.Text = "Edit Role"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(96, 28)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox1.TabIndex = 0
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(96, 77)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(283, 140)
+        Me.TextBox2.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label2.Location = New System.Drawing.Point(6, 28)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 20)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Role ID"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(6, 77)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 20)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Description"
+        '
+        'btnSave
+        '
+        Me.btnSave.Location = New System.Drawing.Point(112, 226)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(89, 26)
+        Me.btnSave.TabIndex = 4
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(242, 226)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(89, 26)
+        Me.btnCancel.TabIndex = 5
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 424)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(1069, 22)
+        Me.StatusStrip1.TabIndex = 6
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.AutoSize = False
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(1000, 17)
+        Me.ToolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmRoles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1069, 446)
         Me.ControlBox = False
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.grpEdit)
+        Me.Controls.Add(Me.grpRoles)
+        Me.Controls.Add(Me.grpNew)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "frmRoles"
         Me.Text = "Member Roles"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.grpNew.ResumeLayout(False)
+        Me.grpNew.PerformLayout()
+        Me.grpRoles.ResumeLayout(False)
+        Me.grpEdit.ResumeLayout(False)
+        Me.grpEdit.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -268,4 +433,18 @@ Partial Class frmRoles
     Friend WithEvents tsbHelp As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents tsbLogout As ToolStripButton
+    Friend WithEvents Label1 As Label
+    Friend WithEvents grpNew As GroupBox
+    Friend WithEvents chkNew As CheckBox
+    Friend WithEvents grpRoles As GroupBox
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents grpEdit As GroupBox
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnSave As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class

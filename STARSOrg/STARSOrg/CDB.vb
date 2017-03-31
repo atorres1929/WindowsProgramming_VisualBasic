@@ -82,12 +82,11 @@ Public Class CDB
         End Try
         Return -1
     End Function
-
     Public Function GetSingleValueFromSP(ByVal strSP As String, ByRef params As ArrayList) As String
         Dim dr As SqlDataReader = GetDataReaderBySP(strSP, params)
         Dim strResult As String
         If Not dr Is Nothing Then
-            If dr.Read Then
+            If dr.Read() Then
                 strResult = dr.GetValue(0).ToString
                 dr.Close()
                 Return strResult
@@ -96,6 +95,6 @@ Public Class CDB
                 Return -1 'no data
             End If
         End If
-        Return -2 'failed to connect to database
+        Return -2 'failed to connect to DB
     End Function
 End Class

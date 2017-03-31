@@ -1,12 +1,11 @@
 ﻿Module modObjects
-
-    Public Sub ClearScreenControls(f As Form)
-
+    Public Sub ClearScreenControls(ByVal objContainer As Control)
+        'This procedure will clear all controls on the form passed in as the argument.
+        'Not all control types have been implement. Add as needed.
         Dim strControlType As String
         Dim obj As Control
-
-        For Each obj In f.Controls
-            strControlType = TypeName(obj)
+        For Each obj In objContainer.Controls
+            strControlType = TypeName(obj) 'TypeName returns the class name of the control
             Select Case strControlType
                 Case "TextBox"
                     Dim cntrl As TextBox
@@ -19,32 +18,29 @@
                 Case "ComboBox"
                     Dim cntrl As ComboBox
                     cntrl = DirectCast(obj, ComboBox)
+                    'clear the selection only, not the list contents
                     cntrl.SelectedIndex = -1
                 Case "ListBox"
                     Dim cntrl As ListBox
                     cntrl = DirectCast(obj, ListBox)
+                    'clear the selection only, not the list contents
                     cntrl.SelectedIndex = -1
                 Case "RadioButton"
                     Dim cntrl As RadioButton
                     cntrl = DirectCast(obj, RadioButton)
                     cntrl.Checked = False
+                Case "GroupBox"
+                    Dim cntrl As GroupBox
+                    cntrl = DirectCast(obj, GroupBox)
+                    'must recruse through its controls collection
+                    ClearScreenControls(cntrl)
                 Case "MaskedTextBox"
                     Dim cntrl As MaskedTextBox
                     cntrl = DirectCast(obj, MaskedTextBox)
                     cntrl.Clear()
-                Case Else
-
+                Case Else 'for all other types of controls
+                    'do nothing or add error trapping if needed
             End Select
         Next
     End Sub
-
-    Public Sub UpcaseText(grpBox As GroupBox)
-        For Each cntrl In grpBox.Controls
-            If TypeOf cntrl Is TextBox Then
-                Dim tBox As TextBox = DirectCast(cntrl, TextBox)
-                tBox.Text = tBox.Text.ToUpper
-            End If
-        Next
-    End Sub
-
 End Module

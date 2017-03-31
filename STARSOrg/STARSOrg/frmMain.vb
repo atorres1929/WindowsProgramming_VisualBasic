@@ -1,9 +1,7 @@
 ﻿Public Class frmMain
-
     Private RoleInfo As frmRoles
     Private MemberInfo As frmMembers
-
-#Region "ToolBar"
+#Region "Toolbar"
     Private Sub tsbMember_Click(sender As Object, e As EventArgs) Handles tsbMember.Click
         Me.Hide()
         MemberInfo.ShowDialog()
@@ -22,12 +20,14 @@
         Me.Show()
     End Sub
 
-    Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbHome.MouseEnter, tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbHelp.MouseEnter, tsbLogout.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
+    Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbHome.MouseEnter, tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbLogOut.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
+        'We need to do this only because we put our images in the BackgroundImage property instead of the Image property
         Dim tsbProxy As ToolStripButton
         tsbProxy = DirectCast(sender, ToolStripButton)
         tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Text
     End Sub
-    Private Sub tsbProxy_MouseLeave(sender As Object, e As EventArgs) Handles tsbHome.MouseLeave, tsbCourse.MouseLeave, tsbEvent.MouseLeave, tsbMember.MouseLeave, tsbRole.MouseLeave, tsbHelp.MouseLeave, tsbLogout.MouseLeave, tsbRSVP.MouseLeave, tsbSemester.MouseLeave, tsbTutor.MouseLeave
+    Private Sub tsbProxy_MouseLeave(sender As Object, e As EventArgs) Handles tsbHome.MouseLeave, tsbCourse.MouseLeave, tsbEvent.MouseLeave, tsbHelp.MouseLeave, tsbLogOut.MouseLeave, tsbMember.MouseLeave, tsbRole.MouseLeave, tsbRSVP.MouseLeave, tsbSemester.MouseLeave, tsbTutor.MouseLeave
+        'We need to do this only because we put our images in the BackgroundImage property instead of the Image property
         Dim tsbProxy As ToolStripButton
         tsbProxy = DirectCast(sender, ToolStripButton)
         tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Image
@@ -36,19 +36,19 @@
 #End Region
 
     Private Sub PerformNextAction()
-        'get the next action selected on the child form
-        'and then simulate the click of the toolbar button here
+        'get the next action selected on the child form, and then simulate the 
+        'click of the toolbar button here
         Select Case intNextAction
             Case ACTION_COURSE
                 tsbCourse.PerformClick()
             Case ACTION_EVENT
                 tsbEvent.PerformClick()
             Case ACTION_HELP
-                tsbHome.PerformClick()
+                tsbHelp.PerformClick()
             Case ACTION_HOME
-                tsbMember.PerformClick()
+                tsbHome.PerformClick()
             Case ACTION_LOGOUT
-                tsbLogout.PerformClick()
+                tsbLogOut.PerformClick()
             Case ACTION_MEMBER
                 tsbMember.PerformClick()
             Case ACTION_ROLE
@@ -60,7 +60,7 @@
             Case ACTION_TUTOR
                 tsbTutor.PerformClick()
             Case Else
-                'Do nothing
+                'do nothing
         End Select
     End Sub
 
@@ -72,9 +72,8 @@
         'open the database
         Try
             myDB.OpenDB()
-
         Catch ex As Exception
-            MessageBox.Show("Unable to Open Database" & gstrConn & "Program will end", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Unable to open database. Connection string = " & gstrConn & " Program will end", "DB error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             EndProgram()
         End Try
     End Sub
@@ -85,7 +84,9 @@
         Me.Cursor = Cursors.WaitCursor
         For Each f In Application.OpenForms
             If f.Name <> Me.Name Then
-                f.Close()
+                If Not f Is Nothing Then
+                    f.Close()
+                End If
             End If
         Next
         'close database connection
@@ -97,7 +98,7 @@
         Application.Exit()
     End Sub
 
-    Private Sub tsbLogout_Click(sender As Object, e As EventArgs) Handles tsbLogout.Click
+    Private Sub tsbLogOut_Click(sender As Object, e As EventArgs) Handles tsbLogOut.Click
         EndProgram()
     End Sub
 End Class

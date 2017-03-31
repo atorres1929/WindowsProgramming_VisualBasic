@@ -1,7 +1,7 @@
 ﻿Module modGlobal
-    'Contains all variables, constants, procedures, and functions that need to be accessed in
-    'more than one form
-#Region "Toolbar Constants"
+    'contains all variables, constants, procedures, and functions that need to be 
+    'accessed in more than one form
+#Region "Toolbar constants"
     Public Const ACTION_NONE As Integer = 0
     Public Const ACTION_HOME As Integer = 1
     Public Const ACTION_MEMBER As Integer = 2
@@ -18,6 +18,5 @@
     'variables
     Public intNextAction As Integer
     Public myDB As New CDB
-
 
 End Module

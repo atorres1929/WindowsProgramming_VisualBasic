@@ -70,6 +70,7 @@ Public Class CDB
             Return -1
         End If
         Dim sqlComm As New SqlCommand(strSP, objSQLConn)
+        sqlComm.CommandType = CommandType.StoredProcedure
         Try
             If Not params Is Nothing Then
                 For Each p As SqlParameter In params

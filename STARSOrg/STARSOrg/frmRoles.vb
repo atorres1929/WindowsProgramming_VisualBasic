@@ -78,7 +78,11 @@ Public Class frmRoles
         Catch ex As Exception
             'should have CDB throw the exception and handle it here instead
         End Try
-
+        'find the new/updated entry in the list if there is one and select it
+        If objRoles.CurrentObject.RoleID <> "" Then
+            lstRoles.SelectedIndex = lstRoles.FindStringExact(objRoles.CurrentObject.RoleID)
+        End If
+        blnReloading = False
     End Sub
 
     Private Sub frmRoles_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -129,5 +133,64 @@ Public Class frmRoles
         blnClearing = False
         objRoles.CurrentObject.IsNewRole = False
         grpRoles.Enabled = True
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim intResult As Integer
+        Dim blnError As Boolean
+        sslStatus.Text = ""
+        'first do input validation
+        If Not ValidateTextBoxLength(txtRoleID, errP) Then
+            blnError = True
+        End If
+        If Not ValidateTextBoxLength(txtDesc, errP) Then
+            blnError = True
+        End If
+        If blnError Then
+            Exit Sub
+        End If
+        'load the current object with the form's data
+        With objRoles.CurrentObject 'our CRoles object
+            .RoleID = Trim(txtRoleID.Text)
+            .RoleDescription = Trim(txtDesc.Text)
+        End With
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            intResult = objRoles.Save
+            If intResult = 1 Then
+                sslStatus.Text = "Role record Saved"
+            End If
+            If intResult = -1 Then 'ID is not unique
+                MessageBox.Show("Role ID Must be Unique: Unable to Save Role Record", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                sslStatus.Text = "Error"
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Role ID Must be Unique: " & ex.ToString, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            sslStatus.Text = "Error"
+        End Try
+        Me.Cursor = Cursors.Default
+        blnReloading = True
+        LoadRoles()
+        chkNew.Checked = False
+        grpRoles.Enabled = True 'in case it was disabled for a new record
+    End Sub
+
+    Private Sub chkNew_CheckedChanged(sender As Object, e As EventArgs) Handles chkNew.CheckedChanged
+        If blnClearing Then
+            Exit Sub
+        End If
+        If chkNew.Checked Then
+            sslStatus.Text = ""
+            ClearScreenControls(grpEdit)
+            lstRoles.SelectedIndex = -1
+            grpRoles.Enabled = False
+            grpEdit.Enabled = True
+            objRoles.CreateNewRole()
+            txtRoleID.Focus()
+        Else
+            grpRoles.Enabled = True
+            grpEdit.Enabled = False
+            objRoles.CurrentObject.IsNewRole = False
+        End If
     End Sub
 End Class

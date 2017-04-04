@@ -353,6 +353,7 @@ Partial Class frmRoles
         'txtDesc
         '
         Me.txtDesc.Location = New System.Drawing.Point(103, 49)
+        Me.txtDesc.MaxLength = 100
         Me.txtDesc.Multiline = True
         Me.txtDesc.Name = "txtDesc"
         Me.txtDesc.Size = New System.Drawing.Size(198, 138)
@@ -361,6 +362,7 @@ Partial Class frmRoles
         'txtRoleID
         '
         Me.txtRoleID.Location = New System.Drawing.Point(102, 20)
+        Me.txtRoleID.MaxLength = 15
         Me.txtRoleID.Name = "txtRoleID"
         Me.txtRoleID.Size = New System.Drawing.Size(200, 20)
         Me.txtRoleID.TabIndex = 2
